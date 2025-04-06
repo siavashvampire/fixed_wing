@@ -1,1 +1,2 @@
 pyfly-fixed-wing
+PyQt6
