@@ -5,3 +5,10 @@ pyfly-master.zip
 
 .idea/
 .venv/
+.vscode/
+
+# Ruff stuff:
+.ruff_cache/
+
+# PyPI configuration file
+.pypirc

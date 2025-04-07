@@ -1,2 +1,6 @@
 pyfly-fixed-wing
 PyQt6
+gymnasium
+pygame>=2.1.3
+pre-commit
+stable_baselines3
