@@ -2,7 +2,7 @@ from pyfly import PyFly
 
 if __name__ == "__main__":
     from dryden import DrydenGustModel
-    from pid_controller import PIDController
+    from app.controller.pid_controller import PIDController
 
     pfly = PyFly("pyfly_config.json", "x8_param.mat")
     pfly.seed(0)
