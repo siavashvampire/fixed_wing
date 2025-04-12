@@ -1,5 +1,5 @@
 from stable_baselines3 import PPO
-from fixedwingenv.envs.fixed_wing import UAVLandingEnv
+from app.envs.fixed_wing import UAVLandingEnv
 
 # Create the custom UAV environment
 env = UAVLandingEnv()
