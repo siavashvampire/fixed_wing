@@ -31,3 +31,9 @@ cd to-working-directory
 pip install -e .
 ```
 
+
+# Logs
+To see logs:
+```
+tensorboard --logdir logs
+```

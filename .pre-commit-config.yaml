@@ -9,3 +9,8 @@ repos:
     rev: v0.11.4
     hooks:
       - id: ruff
+  - repo: https://github.com/pycqa/isort
+    rev: 6.0.1
+    hooks:
+      - id: isort
+        name: isort (python)

@@ -13,7 +13,10 @@ import numpy as np
 #   agent_hz: int = 30,
 #   render_mode: None | str = None,
 # )
-env = gymnasium.make("PyFlyt/Fixedwing-Waypoints-v3", render_mode="human")
+env = gymnasium.make(
+    "PyFlyt/Fixedwing-Waypoints-v3",
+    render_mode="human",
+)
 # print(env.agent_hz)
 print(env.action_space)
 print(env.action_space.sample())
@@ -23,5 +26,5 @@ obs, _ = env.reset()
 
 while not (term or trunc):
     asd = env.action_space.sample()
-    obs, rew, term, trunc, _ = env.step(np.array([0,0,0,0.5]))
+    obs, rew, term, trunc, _ = env.step(np.array([0, 0, 0, 0.5]))
     # print(obs)

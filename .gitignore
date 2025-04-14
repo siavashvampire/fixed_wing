@@ -12,3 +12,5 @@ pyfly-master.zip
 
 # PyPI configuration file
 .pypirc
+
+logs/
