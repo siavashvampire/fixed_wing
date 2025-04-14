@@ -1,10 +1,11 @@
+from math import exp, pi, sqrt
+
 import gymnasium as gym
 import numpy as np
 from gymnasium import spaces
-from math import exp, sqrt, pi
 
 
-class UAVLandingEnv(gym.Env):
+class UAVLandingBaseEnv(gym.Env):
     metadata = {"render_modes": ["human", "rgb_array"], "render_fps": 4}
 
     def __init__(self):
@@ -87,7 +88,7 @@ class UAVLandingEnv(gym.Env):
         reward = self._calculate_reward(observation)
 
         # Check if the episode is done (e.g., landing within target bounds, crash, etc.)
-        done = self._check_done(observation)
+        terminated = self._check_terminated(observation)
 
         info = self._get_info()
 
@@ -96,7 +97,7 @@ class UAVLandingEnv(gym.Env):
         if self.render_mode == "human":
             self._render_frame()
 
-        return observation, reward, done, False, info
+        return observation, reward, terminated, False, info
 
     def _action_to_actuator(self, action):
         # Convert action to the control inputs (elevator and wing sweep)
@@ -161,10 +162,10 @@ class UAVLandingEnv(gym.Env):
 
         return reward
 
-    def _check_done(self, observation):
+    def _check_terminated(self, observation):
         # Check if the UAV has reached the landing target or if it has crashed
         x, z, theta, _, _ = observation
-        done = (
+        terminated = (
             np.abs(x) < 1 and np.abs(z) < 1 and np.abs(theta) < 0.1
         )  # Goal: land within 1m of target with small angle
-        return done
+        return terminated

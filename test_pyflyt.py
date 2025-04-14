@@ -1,6 +1,7 @@
 import gymnasium
-import PyFlyt.gym_envs
 import numpy as np
+
+# import PyFlyt.gym_envs
 
 # env = gymnasium.make(
 #   "PyFlyt/Fixedwing-Waypoints-v0",
@@ -18,8 +19,8 @@ env = gymnasium.make(
     render_mode="human",
 )
 # print(env.agent_hz)
-print(env.action_space)
-print(env.action_space.sample())
+print(f"Action space: {env.action_space}")
+print(f"Sample action: {env.action_space.sample()}")
 
 term, trunc = False, False
 obs, _ = env.reset()
