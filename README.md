@@ -16,7 +16,7 @@ This repository hosts the examples that are shown [on wrapper documentation](htt
 ### Contributing
 If you would like to contribute, follow these steps:
 - Fork this repository
-- Clone your fork
+- Clone your fork 
 - Set up pre-commit via `pre-commit install`
 
 PRs may require accompanying PRs in [the documentation repo](https://github.com/Farama-Foundation/Gymnasium/tree/main/docs).
