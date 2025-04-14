@@ -53,9 +53,18 @@ class PIDController:
         # Positive elevator -> NEGATIVE pitch moment
 
         delta_t = 0 - self.k_p_V * e_V_a - self.k_i_V * self.int_va  # PI
-        delta_a = - self.k_p_phi * e_phi - self.k_i_phi * self.int_roll - self.k_d_phi * omega[0]  # PID
-        delta_e = 0 - self.k_p_theta * e_theta - self.k_i_theta * self.int_pitch - self.k_d_theta * omega[1]  # PID
-        delta_r = 0  # No rudder available
+        delta_a = (
+            -self.k_p_phi * e_phi
+            - self.k_i_phi * self.int_roll
+            - self.k_d_phi * omega[0]
+        )  # PID
+        delta_e = (
+            0
+            - self.k_p_theta * e_theta
+            - self.k_i_theta * self.int_pitch
+            - self.k_d_theta * omega[1]
+        )  # PID
+        # delta_r = 0  # No rudder available
 
         # Constrain input
         delta_t = np.clip(delta_t, 0, 1.0)  # throttle between 0 and 1
@@ -64,4 +73,3 @@ class PIDController:
         delta_e = np.clip(delta_e, self.delta_e_min, self.delta_e_max)
 
         return np.asarray([delta_e, delta_a, delta_t])
-

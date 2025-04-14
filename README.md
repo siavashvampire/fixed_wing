@@ -30,7 +30,10 @@ To install your new environment, run the following commands:
 cd to-working-directory
 pip install -e .
 ```
-
+or 
+```
+export PYTHONPATH="/home/hoda/Documents/projects/hooma/fixed_wing/:$PYTHONPATH"
+```
 
 # Logs
 To see logs:
