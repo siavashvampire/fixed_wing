@@ -1,9 +1,10 @@
-from app.envs.base import UAVLandingBaseEnv
 from stable_baselines3 import PPO
+
+from apps.envs.base import UAVLandingBaseEnv
 
 env = UAVLandingBaseEnv()
 
-model = PPO.load("ppo_uav_landing")
+model = PPO.load("results/ppo_uav_landing")
 
 obs, info = env.reset()
 terminated = False

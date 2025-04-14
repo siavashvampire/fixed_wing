@@ -3,3 +3,5 @@ numpy
 pyflyt
 gymnasium
 tensorboard
+selenium
+tensorflow
